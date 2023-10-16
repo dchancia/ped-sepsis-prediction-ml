@@ -2,6 +2,10 @@
 
 This repository provides code and models for a sepsis prediction model for a retrospective study for Pediatric Intensive Care Unit (PICU) patients admitted to Children's Healthcare of Atlanta (CHOA) from 2010 to 2022.
 
+## Overview
+
+**Graphical abstract here!**
+
 ## Sepsis Cohorts
 
 To identify the required sepsis cohort, we followed 3 different screening approaches: **pSepsis-3**, SIRS + OD, and INF + SIRS + OD. The same inclusion criteria applied to all of them: children younger than 18 years old admitted at least once to the PICU during their hospitalization.
@@ -12,4 +16,4 @@ To identify the required sepsis cohort, we followed 3 different screening approa
 
 ![Cohorts Flow Diagram](./files/flow_diagram.png)
 
-The scripts for the screening approaches are in the folder [screening_methods](./screening_methods/) using the data generated with the scripts in the folder [data_screening](./data_screening/)
+The scripts for the screening approaches are in the folder [screening_methods](./screening_methods/) using the data generated with the scripts in the folder [data_screening](./data_screening/).
