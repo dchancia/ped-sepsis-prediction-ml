@@ -4,7 +4,7 @@ This repository provides code and models for a sepsis prediction model for a ret
 
 ## Overview
 
-**Graphical abstract here!**
+![Graphical Abstract](./files/graphical_abstract.png)
 
 ## Sepsis Cohorts
 
