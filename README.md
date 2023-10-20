@@ -62,9 +62,14 @@ The `/train_test_models/utils/preprocess_utils.py` script contains multiple func
 
 ### Validation
 
-- Internal: Using the derivation dataset. 95% CI calculated using 50 different seeds for the train/test split. `/train_test_models/internal_val.py`
-- External: Using the external validation dataset. 95% CI calculated using bootstrapping. `/train_test_models/internal_val.py`
+- Internal: Using the derivation dataset. 95% CI calculated using 50 different seeds for the train/test split. `/train_test_models/internal_val.py`.
+- External: Using the external validation dataset. 95% CI calculated using bootstrapping. `/train_test_models/internal_val.py`.
 
 ### Interpretability
 
-We generated shap beeswarm and scatter plots for the most important features using the the SHAP library. `/train_test_models/shap_catboost.py`
+We generated shap beeswarm and scatter plots for the most important features using the the SHAP library. `/train_test_models/shap_catboost.py`.
+
+<p float="left">
+  <img src="./files/shap_external.png" width="37.25%" />
+  <img src="./files/shap_external_scatter.png" width="61.5%" /> 
+</p>
