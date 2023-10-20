@@ -31,13 +31,6 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 
 <div align="center">
 
-| Item         | Price | # In stock |
-|--------------|:-----:|-----------:|
-| Juicy Apples |  1.99 |        739 |
-| Bananas      |  1.89 |          6 |
-
-</div>
-
 | Features |         |
 |----------|---------|
 | Vital signs     | Diastolic blood pressure<br>Systolic blood pressure<br>Mean arterial blood pressure<br>HeartRate<br>Respiratory rate <br>Oxygen saturation (SpO2)<br>Temperature |
