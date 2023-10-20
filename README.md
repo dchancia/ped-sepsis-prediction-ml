@@ -29,9 +29,14 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 
 ### Features
 
-<div style="margin-left: auto;
-            margin-right: auto;
-            width: 30%">
+<div align="center">
+
+| Item         | Price | # In stock |
+|--------------|:-----:|-----------:|
+| Juicy Apples |  1.99 |        739 |
+| Bananas      |  1.89 |          6 |
+
+</div>
 
 | Features |         |
 |----------|---------|
