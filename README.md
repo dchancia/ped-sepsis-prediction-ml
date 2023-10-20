@@ -37,7 +37,7 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 | Scoring Systems                | pSOFA                                         |
 | Other Clinical Characteristics | Fraction inspired oxygen (FiO2)<br>PaO2/FiO2<br>Left pupil size<br>Left pupil reaction<br>Abnormal heart rate<br>Abnormal respiratory rate<br>Abnormal temperature<br>Abnormal WBC<br>Abnormal band neutrophils<br>Abnormal systolic blood pressure<br>Abnormal base deficit<br>Abnormal lactic acid<br>Abnormal prothrombin time (PT)<br>Abnormal international normalized ratio (INR)<br>Abnormal alanine aminotransferase (ALT)<br>Abnormal aspartate aminotransferase (AST)<br>Low platelets<br>Elevated creatinine<br>Two consecutive SpO2 <= 90<br>FiO2 > 50<br>On asthma medications<br>On seizure medications<br>On insulin |
 
-### Preprecessing
+### Preprocessing
 
 The `get_features.ipynb` notebook in the `/data_models` folder shows the adopted preprocessing pipeline. It can be summarized in the following steps:
 
