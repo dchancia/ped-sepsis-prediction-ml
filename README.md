@@ -18,4 +18,11 @@ To identify the required sepsis cohort, we followed 3 different screening approa
 
 The scripts for the screening approaches are in the folder [`screening_methods`](./screening_methods/) using the data generated with the scripts in the folder [`data_screening`](./data_screening/).
 
-## Prediction Model
+## Requirements
+
+- Python >= 3.9.12
+- [`requirements.txt`](./requirements.txt)
+
+## Sepsis Prediction Model
+
+We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for each of the 3 cohorts. The selected model, with the best performance, is CatBoost for the pSepsis-3 cohort. It outputs the risk of sepsis within the first seven days of hospital admission for PICU patients. Download the trained model: [`sepsis_catboost.cbm`](./models/sepsis_catboost.cbm)
