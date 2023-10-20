@@ -25,7 +25,7 @@ The scripts for the screening approaches are in the folder [`screening_methods`]
 
 ## Sepsis Prediction Model
 
-We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for each of the 3 cohorts. The selected model, with the best performance, is CatBoost for the pSepsis-3 cohort. It outputs the risk of sepsis within the first seven days of hospital admission for PICU patients. Download the trained model: [`sepsis_catboost.cbm`](./models/sepsis_catboost.cbm)
+We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for each of the 3 cohorts. The selected model, with the best performance, is CatBoost for the pSepsis-3 cohort. It outputs the risk of sepsis within the first seven days of hospital admission for PICU patients. Download the trained model: [`Sepsis Prediction model`](./models/sepsis_catboost.cbm)
 
 ### Features
 
@@ -36,3 +36,17 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 | Demographics                   | Age group                                     |
 | Scoring Systems                | pSOFA                                         |
 | Other Clinical Characteristics | Fraction inspired oxygen (FiO2)<br>PaO2/FiO2<br>Left pupil size<br>Left pupil reaction<br>Abnormal heart rate<br>Abnormal respiratory rate<br>Abnormal temperature<br>Abnormal WBC<br>Abnormal band neutrophils<br>Abnormal systolic blood pressure<br>Abnormal base deficit<br>Abnormal lactic acid<br>Abnormal prothrombin time (PT)<br>Abnormal international normalized ratio (INR)<br>Abnormal alanine aminotransferase (ALT)<br>Abnormal aspartate aminotransferase (AST)<br>Low platelets<br>Elevated creatinine<br>Two consecutive SpO2 <= 90<br>FiO2 > 50<br>On asthma medications<br>On seizure medications<br>On insulin |
+
+### Preprecessing
+
+The `get_features.ipynb` notebook in the `/data_models` folder shows the adopted preprocessing pipeline. It can be summarized in the following steps:
+
+1. Collect data obtained within the first 7 days of hospital stay.
+2. Resample data into two hour bins, using the median if there are multiple values recorded.
+3. Discard outliers.
+4. Impute missing values using forward fill for a patient-wise imputation, followed by population median imputation for the remaining missing values.
+5. Select the 24-hour windows.
+6. Aggregate data into a 24-hour bin using the mean, median, standard deviation, minimum, and maximum.
+7. Add demographic information - age.
+8. Add medications flags.
+
