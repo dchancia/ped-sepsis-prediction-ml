@@ -29,7 +29,7 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 
 ### Features
 
-| Features                       |                                               |
+| Features                                                                       |
 |--------------------------------|-----------------------------------------------|
 | Vital signs                    | Diastolic blood pressure                      |
 |                                | Systolic blood pressure                       |
