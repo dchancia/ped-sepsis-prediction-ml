@@ -21,7 +21,7 @@ The scripts for the screening approaches are in the folder [`screening_methods`]
 ## Requirements
 
 - Python >= 3.9.12
-- [`requirements.txt`](./requirements.txt)
+- `requirements.txt`
 
 ## Sepsis Prediction Model
 
@@ -29,15 +29,9 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 
 ### Features
 
-| Features                       |                                               |
-|--------------------------------|-----------------------------------------------|
-| Vital signs                    | Diastolic blood pressure                      |
-|                                | Systolic blood pressure                       |
-|                                | Mean arterial blood pressure                  |
-|                                | Heart rate                                    |
-|                                | Respiratory rate                              |
-|                                | Oxygen saturation (SpO2)                      |
-|                                | Temperature                                   |
+| Features |         |
+|----------|---------|
+| Vital signs     | Diastolic blood pressure<br>Systolic blood pressure<br>Mean arterial blood pressure<br>HeartRate<br>Respiratory rate <br>Oxygen saturation (SpO2)<br>Temperature |
 | Laboratory Tests               | Albumin                                       |
 |                                | Base excess                                   |
 |                                | Base deficit                                  |
