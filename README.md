@@ -70,6 +70,6 @@ The `/train_test_models/utils/preprocess_utils.py` script contains multiple func
 We generated shap beeswarm and scatter plots for the most important features using the the SHAP library. `/train_test_models/shap_catboost.py`.
 
 <p float="left">
-  <img src="./files/shap_external.png" width="40%" />
-  <img src="./files/shap_external_scatter.png" width="40%" /> 
+  <img src="./files/shap_external.png" width="45%" />
+  <img src="./files/shap_external_scatter.png" width="50%" /> 
 </p>
