@@ -25,7 +25,7 @@ The scripts for the screening approaches are in the folder [`screening_methods`]
 
 ## Sepsis Prediction Model
 
-We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for each of the 3 cohorts. The selected model, with the best performance, is CatBoost for the pSepsis-3 cohort. It outputs the risk of sepsis within the first seven days of hospital admission for PICU patients. Download the trained model: [`Sepsis Prediction model`](./models/sepsis_catboost.cbm)
+We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for each of the 3 cohorts. The selected model, with the best performance, is CatBoost for the pSepsis-3 cohort. It outputs the risk of sepsis within the first seven days of hospital admission for PICU patients. Download the trained model: [`Sepsis Prediction model`](./models/sepsis_catboost.cbm).
 
 ### Features
 
@@ -50,3 +50,17 @@ The `get_features.ipynb` notebook in the `/data_models` folder shows the adopted
 7. Add demographic information - age.
 8. Add medications flags.
 
+The `/train_test_models/utils/preprocess_utils.py` script contains multiple functions to split, normalize, and balance the dataset.
+
+### Training
+
+`/train_test_models/train_test_catboost.py`
+
+### Validation
+
+- Internal: Using the derivation dataset. 95% CI calculated using 50 different seeds for the train/test split. `/train_test_models/internal_val.py`
+- External: Using the external validation dataset. 95% CI calculated using bootstrapping. `/train_test_models/internal_val.py`
+
+### Interpretability
+
+We generated shap beeswarm and scatter plots for the most important features using the the SHAP library. `/train_test_models/shap_catboost.py`
