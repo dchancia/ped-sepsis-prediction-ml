@@ -32,50 +32,7 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 | Features |         |
 |----------|---------|
 | Vital signs     | Diastolic blood pressure<br>Systolic blood pressure<br>Mean arterial blood pressure<br>HeartRate<br>Respiratory rate <br>Oxygen saturation (SpO2)<br>Temperature |
-| Laboratory Tests               | Albumin                                       |
-|                                | Base excess                                   |
-|                                | Base deficit                                  |
-|                                | Arterial PaCO2                                |
-|                                | Arterial PaO2                                 |
-|                                | Bicarbonate                                   |
-|                                | Bilirubin                                     |
-|                                | Blood urea nitrogen (BUN)                     |
-|                                | Calcium                                       |
-|                                | Ionized calcium                               |
-|                                | Chloride                                      |
-|                                | Carbon dioxide (CO2)                          |
-|                                | Creatinine                                    |
-|                                | Glucose                                       |
-|                                | Hemoglobin                                    |
-|                                | Lactic acid                                   |
-|                                | pH                                            |
-|                                | Platelets                                     |
-|                                | Potassium                                     |
-|                                | Partial thromboplastin time (PTT)             |
-|                                | Sodium                                        |
-|                                | White blood cell (WBC) count                  |
+| Laboratory Tests| Albumin<br>Base excess<br>Base deficit<br>Arterial PaCO2<br>Arterial PaO2<br>Bicarbonate<br>Bilirubin<br>Blood urea nitrogen (BUN)<br>Calcium<br>Ionized calcium<br>Chloride<br>Carbon dioxide (CO2)<br>Creatinine<br>Glucose<br>Hemoglobin<br>Lactic acid<br>pH<br>Platelets<br>Potassium<br>Partial thromboplastin time (PTT)<br>Sodium<br>White blood cell (WBC) count |
 | Demographics                   | Age group                                     |
 | Scoring Systems                | pSOFA                                         |
-| Other Clinical Characteristics | Fraction inspired oxygen (FiO2)               |
-|                                | PaO2/FiO2                                     |
-|                                | Left pupil size                               |
-|                                | Left pupil reaction                           |
-|                                | Abnormal heart rate                           |
-|                                | Abnormal respiratory rate                     |
-|                                | Abnormal temperature                          |
-|                                | Abnormal WBC                                  |
-|                                | Abnormal band neutrophils                     |
-|                                | Abnormal systolic blood pressure              |
-|                                | Abnormal base deficit                         |
-|                                | Abnormal lactic acid                          |
-|                                | Abnormal prothrombin time (PT)                |
-|                                | Abnormal international normalized ratio (INR) |
-|                                | Abnormal alanine aminotransferase (ALT)       |
-|                                | Abnormal aspartate aminotransferase (AST)     |
-|                                | Low platelets                                 |
-|                                | Elevated creatinine                           |
-|                                | Two consecutive SpO2 <= 90                    |
-|                                | FiO2 > 50                                     |
-|                                | On asthma medications                         |
-|                                | On seizure medications                        |
-|                                | On insulin                                    |
+| Other Clinical Characteristics | Fraction inspired oxygen (FiO2)<br>PaO2/FiO2<br>Left pupil size<br>Left pupil reaction<br>Abnormal heart rate<br>Abnormal respiratory rate<br>Abnormal temperature<br>Abnormal WBC<br>Abnormal band neutrophils<br>Abnormal systolic blood pressure<br>Abnormal base deficit<br>Abnormal lactic acid<br>Abnormal prothrombin time (PT)<br>Abnormal international normalized ratio (INR)<br>Abnormal alanine aminotransferase (ALT)<br>Abnormal aspartate aminotransferase (AST)<br>Low platelets<br>Elevated creatinine<br>Two consecutive SpO2 <= 90<br>FiO2 > 50<br>On asthma medications<br>On seizure medications<br>On insulin |
