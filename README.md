@@ -32,6 +32,7 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 <div style="margin-left: auto;
             margin-right: auto;
             width: 30%">
+
 | Features |         |
 |----------|---------|
 | Vital signs     | Diastolic blood pressure<br>Systolic blood pressure<br>Mean arterial blood pressure<br>HeartRate<br>Respiratory rate <br>Oxygen saturation (SpO2)<br>Temperature |
@@ -39,6 +40,7 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 | Demographics                   | Age group                                     |
 | Scoring Systems                | pSOFA                                         |
 | Other Clinical Characteristics | Fraction inspired oxygen (FiO2)<br>PaO2/FiO2<br>Left pupil size<br>Left pupil reaction<br>Abnormal heart rate<br>Abnormal respiratory rate<br>Abnormal temperature<br>Abnormal WBC<br>Abnormal band neutrophils<br>Abnormal systolic blood pressure<br>Abnormal base deficit<br>Abnormal lactic acid<br>Abnormal prothrombin time (PT)<br>Abnormal international normalized ratio (INR)<br>Abnormal alanine aminotransferase (ALT)<br>Abnormal aspartate aminotransferase (AST)<br>Low platelets<br>Elevated creatinine<br>Two consecutive SpO2 <= 90<br>FiO2 > 50<br>On asthma medications<br>On seizure medications<br>On insulin |
+
 </div>
 
 ### Preprocessing
