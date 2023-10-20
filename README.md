@@ -71,5 +71,5 @@ We generated shap beeswarm and scatter plots for the most important features usi
 
 <p float="left">
   <img src="./files/shap_external.png" width="40%" />
-  <img src="./files/shap_external_scatter.png" width="60%" /> 
+  <img src="./files/shap_external_scatter.png" width="55%" /> 
 </p>
