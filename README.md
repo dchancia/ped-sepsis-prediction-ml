@@ -25,6 +25,8 @@ The scripts for the screening approaches are in the folder `/screening_methods` 
 
 We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for each of the 3 cohorts. The selected model, with the best performance, is CatBoost for the Phoenix cohort. It outputs the risk of sepsis within the first seven days of hospital admission for PICU patients. 
 
+![Risk Plot](./files/daily_sepsis_risk.png)
+
 ### Features
 
 <div align="center">
