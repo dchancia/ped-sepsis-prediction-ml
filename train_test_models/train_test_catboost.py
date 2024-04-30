@@ -85,13 +85,13 @@ col_names_fixed = ['Albumin (Mean)', 'Albumin (Median)', 'Albumin (Min)', 'Album
 if __name__ == "__main__":
 
     # Define screening method
-    screening_method = 'inf_psofa'
+    screening_method = 'inf_phoenix'
 
     # Load data and preprocess derivation data
-    X, y, X_train, X_test, y_train, y_test, pre_counter, pos_weight, post_counter, cols, X_test_non_norm = preprocess_train_test (os.path.join('/opt/moredata/dchanci/pediatric_sepsis/data_models/approach_m1', 'dataset_agg_eg_' + screening_method + '.csv'), col_names, col_names_fixed)
+    X, y, X_train, X_test, y_train, y_test, pre_counter, pos_weight, post_counter, cols, X_test_non_norm = preprocess_train_test (os.path.join('/labs/kamaleswaranlab/dchanci/data/pediatric_sepsis/prediction_ml/updated_data/data_models', 'dataset_agg_eg_' + screening_method + '.parquet.gzip'), col_names, col_names_fixed)
 
     # Load data and preprocess validation data
-    X_train, X_val, y_train, y_val, pos_weight, pre_counter, post_counter, X_train_non_norm, X_val_non_norm = preprocess_train_val (X, y, cols, os.path.join('/opt/moredata/dchanci/pediatric_sepsis/data_models/approach_m1', 'dataset_agg_sr_' + screening_method + '.csv'), col_names, col_names_fixed)
+    X_train, X_val, y_train, y_val, pos_weight, pre_counter, post_counter, X_train_non_norm, X_val_non_norm = preprocess_train_val (X, y, cols, os.path.join('/labs/kamaleswaranlab/dchanci/data/pediatric_sepsis/prediction_ml/updated_data/data_models', 'dataset_agg_sr_' + screening_method + '.parquet.gzip'), col_names, col_names_fixed)
     print('Ratio:', pos_weight)
     print('Before balancing:', pre_counter)
     print('After balancing:', post_counter)

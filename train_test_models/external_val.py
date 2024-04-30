@@ -94,8 +94,8 @@ col_names_fixed = ['Albumin (Mean)', 'Albumin (Median)', 'Albumin (Min)', 'Album
 if __name__ == "__main__":
 
     # Define path and screening method
-    path = '/home/dchanci/research/pediatric_sepsis/models/results'
-    screening_methods = ['inf_psofa', 'sirs_od', 'inf_sirs_od']
+    path = '/home/dchanci/projects/ped_sepsis_prediction_ml/models/results_updated'
+    screening_methods = ['inf_phoenix', 'inf_psofa', 'sirs_od']
     save_folder = 'results'
     reps = 50
 
@@ -111,10 +111,10 @@ if __name__ == "__main__":
     for screening_method in screening_methods:
       
         # Load and preprocess derivation data
-        X, y = preprocess_der(os.path.join('/opt/moredata/dchanci/pediatric_sepsis/data_models/approach_m1', 'dataset_agg_eg_' + screening_method + '.csv'), col_names, col_names_fixed)
+        X, y = preprocess_der(os.path.join('/labs/kamaleswaranlab/dchanci/data/pediatric_sepsis/prediction_ml/updated_data/data_models', 'dataset_agg_eg_' + screening_method + '.parquet.gzip'), col_names, col_names_fixed)
 
         # Load data and preprocess validation data
-        data_val = preprocess_val(os.path.join('/opt/moredata/dchanci/pediatric_sepsis/data_models/approach_m1', 'dataset_agg_sr_' + screening_method + '.csv'), col_names)
+        data_val = preprocess_val(os.path.join('/labs/kamaleswaranlab/dchanci/data/pediatric_sepsis/prediction_ml/updated_data/data_models', 'dataset_agg_sr_' + screening_method + '.parquet.gzip'), col_names)
 
         # Train and evaluate
         metrics, metrics_true = external_val (classifiers, X, y, data_val, names, False, colors, path, save_folder, screening_method, reps, col_names_fixed)

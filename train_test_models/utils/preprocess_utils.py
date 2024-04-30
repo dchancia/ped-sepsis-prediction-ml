@@ -14,7 +14,7 @@ def preprocess_der (path, col_names, col_names_fixed):
     """
 
     # Load data
-    data = pd.read_csv(path)
+    data = pd.read_parquet(path)
     data = data.replace(np.nan, 0)
     data = data.replace([np.inf, -np.inf], 0).dropna()
 
@@ -45,7 +45,7 @@ def preprocess_val (path, col_names):
     """
 
     # Load data
-    data = pd.read_csv(path)
+    data = pd.read_parquet(path)
     data = data.replace(np.nan, 0)
     data = data.replace([np.inf, -np.inf], 0).dropna()
 
@@ -70,7 +70,7 @@ def preprocess_train_test (path, col_names, col_names_fixed):
     Preprocess train-test splits from derivation dataset (Egleston).
     """
 
-    data = pd.read_csv(path)
+    data = pd.read_parquet(path)
     data = data.replace(np.nan, 0)
     data = data.replace([np.inf, -np.inf], 0).dropna()
 
@@ -123,7 +123,7 @@ def preprocess_train_val (X, y, cols, path, col_names, col_names_fixed):
     """
 
     # Load data
-    data = pd.read_csv(path)
+    data = pd.read_parquet(path)
     data = data.replace(np.nan, 0)
     data = data.replace([np.inf, -np.inf], 0).dropna()
 

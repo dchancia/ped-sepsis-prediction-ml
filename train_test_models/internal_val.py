@@ -93,8 +93,8 @@ col_names_fixed = ['Albumin (Mean)', 'Albumin (Median)', 'Albumin (Min)', 'Album
 if __name__ == "__main__":
 
     # Define path and screening method
-    path = '/home/dchanci/research/pediatric_sepsis/models/results'
-    screening_methods = ['inf_psofa', 'sirs_od', 'inf_sirs_od']
+    path = '/home/dchanci/projects/ped_sepsis_prediction_ml/models/results_updated'
+    screening_methods = ['inf_phoenix', 'inf_psofa', 'sirs_od']
     save_folder = 'results'
     reps = 50
 
@@ -111,7 +111,7 @@ if __name__ == "__main__":
     for screening_method in screening_methods:
 
         # Load and preprocess data
-        X, y = preprocess_der(os.path.join('/opt/moredata/dchanci/pediatric_sepsis/data_models/approach_m1', 'dataset_agg_eg_' + screening_method + '.csv'), col_names, col_names_fixed)
+        X, y = preprocess_der(os.path.join('/labs/kamaleswaranlab/dchanci/data/pediatric_sepsis/prediction_ml/updated_data/data_models', 'dataset_agg_eg_' + screening_method + '.parquet.gzip'), col_names, col_names_fixed)
 
         # Train and evaluate
         metrics = internal_val(classifiers, X, y, names, False, colors, path, save_folder, screening_method, reps, col_names_fixed)

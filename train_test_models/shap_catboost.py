@@ -88,18 +88,19 @@ col_names_fixed = ['Albumin (Mean)', 'Albumin (Median)', 'Albumin (Min)', 'Album
 if __name__ == "__main__":
 
     # Define screening method
-    path = '/home/dchanci/research/pediatric_sepsis/models/results'
-    screening_methods = ['inf_psofa', 'sirs_od', 'inf_sirs_od']
+    path = '/home/dchanci/projects/ped_sepsis_prediction_ml/models/results_updated'
+    screening_methods = ['inf_phoenix', 'inf_psofa', 'sirs_od']
     save_folder = 'results'
 
     # Iterate through screening methods
     for screening_method in screening_methods:
 
          # Define features for Shap scatter plots
-        scatter_features = {'inf_psofa': ['pSOFA', 'FiO2 (Max)', 'Temperature (Max)', 'Systolic Blood Pressure (Min)', 'SpO2 (Median)', 'Heart Rate (Max)']}
+        shap_features = {'inf_psofa': ['pSOFA', 'FiO2 (Max)', 'PaO2 (Min)', 'Temperature (Max)', 'BUN (Max)', 'SpO2 (Median)'],
+                        'inf_phoenix': ['pSOFA', 'Albumin (Min)', 'FiO2 (Min)', 'Temperature (Max)', 'Pupil Left Size (Min)', 'SpO2 (Max)']}
 
         # Load data and preprocess derivation data
-        X, y, X_train, X_test, y_train, y_test, pre_counter, pos_weight, post_counter, cols, X_test_non_norm = preprocess_train_test (os.path.join('/opt/moredata/dchanci/pediatric_sepsis/data_models/approach_m1', 'dataset_agg_eg_' + screening_method + '.csv'), col_names, col_names_fixed)
+        X, y, X_train, X_test, y_train, y_test, pre_counter, pos_weight, post_counter, cols, X_test_non_norm = preprocess_train_test (os.path.join('/labs/kamaleswaranlab/dchanci/data/pediatric_sepsis/prediction_ml/updated_data/data_models', 'dataset_agg_eg_' + screening_method + '.parquet.gzip'), col_names, col_names_fixed)
 
         # Fit model train-test split
         model = CatBoostClassifier(iterations=500, depth=8, verbose=False)
@@ -112,10 +113,12 @@ if __name__ == "__main__":
         explainer = shap.TreeExplainer(model)
         shap_beeswarm(explainer, 'test', X_test, path, screening_method, save_folder)
         if screening_method == 'inf_psofa':
-            shap_scatter(scatter_features, explainer, 'test', X_test, X_test_non_norm, probas[:,1], path, screening_method, save_folder)
+            shap_scatter(shap_features['inf_psofa'], explainer, 'test', X_test, X_test_non_norm, probas[:,1], path, screening_method, save_folder)
+        if screening_method == 'inf_phoenix':
+            shap_scatter(shap_features['inf_phoenix'], explainer, 'test', X_test, X_test_non_norm, probas[:,1], path, screening_method, save_folder)
 
         # Load data and preprocess validation data
-        X_train, X_val, y_train, y_val, pos_weight, pre_counter, post_counter, X_train_non_norm, X_val_non_norm = preprocess_train_val (X, y, cols, os.path.join('/opt/moredata/dchanci/pediatric_sepsis/data_models/approach_m1', 'dataset_agg_sr_' + screening_method + '.csv'), col_names, col_names_fixed)
+        X_train, X_val, y_train, y_val, pos_weight, pre_counter, post_counter, X_train_non_norm, X_val_non_norm = preprocess_train_val (X, y, cols, os.path.join('/labs/kamaleswaranlab/dchanci/data/pediatric_sepsis/prediction_ml/updated_data/data_models', 'dataset_agg_sr_' + screening_method + '.parquet.gzip'), col_names, col_names_fixed)
 
         # Fit model train dataset
         model = CatBoostClassifier(iterations=500, depth=8, verbose=False)
@@ -128,9 +131,13 @@ if __name__ == "__main__":
         explainer = shap.TreeExplainer(model)
         shap_beeswarm(explainer, 'train', X_train, path, screening_method, save_folder)
         if screening_method == 'inf_psofa':
-            shap_scatter(scatter_features, explainer, 'train', X_train, X_train_non_norm, y_train, path, screening_method, save_folder)
+            shap_scatter(shap_features['inf_psofa'], explainer, 'train', X_train, X_train_non_norm, y_train, path, screening_method, save_folder)
+        if screening_method == 'inf_phoenix':
+            shap_scatter(shap_features['inf_phoenix'], explainer, 'train', X_train, X_train_non_norm, y_train, path, screening_method, save_folder)
 
         # Generate shap plots val
         shap_beeswarm(explainer, 'val', X_val, path, screening_method, save_folder)
         if screening_method == 'inf_psofa':
-            shap_scatter(scatter_features, explainer, 'val', X_val, X_val_non_norm, probas[:,1], path, screening_method, save_folder)
+            shap_scatter(shap_features['inf_psofa'], explainer, 'val', X_val, X_val_non_norm, probas[:,1], path, screening_method, save_folder)
+        if screening_method == 'inf_phoenix':
+            shap_scatter(shap_features['inf_phoenix'], explainer, 'val', X_val, X_val_non_norm, probas[:,1], path, screening_method, save_folder)

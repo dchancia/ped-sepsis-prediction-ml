@@ -52,10 +52,10 @@ def compute_metrics (metrics_df, metrics_true_df, names):
         for col in data.columns[1:]:
             if isinstance(data_true, pd.DataFrame):
                 mean_metric = round(data_true[col].values[0], 2)
-                ci = st.norm.interval(alpha=0.95, loc=data_true[col].values[0], scale=st.sem(data[col]))                
+                ci = st.norm.interval(confidence=0.95, loc=data_true[col].values[0], scale=st.sem(data[col]))                
             else:
                 mean_metric = round(np.mean(data[col]), 2)
-                ci = st.norm.interval(alpha=0.95, loc=np.mean(data[col]), scale=st.sem(data[col]))
+                ci = st.norm.interval(confidence=0.95, loc=np.mean(data[col]), scale=st.sem(data[col]))
             ci_b = round(ci[0], 2)
             ci_u = round(ci[1], 2)
             if str(ci_b) == 'nan':
