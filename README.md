@@ -8,13 +8,11 @@ This repository provides code and models for a sepsis prediction model for a ret
 
 ## Sepsis Cohorts
 
-To identify the required sepsis cohort, we followed 3 different screening approaches: **pSepsis-3**, SIRS + OD, and INF + SIRS + OD. The same inclusion criteria applied to all of them: children younger than 18 years old admitted at least once to the PICU during their hospitalization.
+To identify the required sepsis cohort, we followed 3 different screening approaches: **Phoenix**, pSepsis-3, and SIRS + OD. The same inclusion criteria applied to all of them: children younger than 18 years old admitted at least once to the PICU during their hospitalization.
 
-- pSepsis-3: Patients with suspected infection and pSOFA score $\ge$ 2 from 48 hours before to 24 hours after the infection time. Selected for final model.
-- SIRS + OD: Patients with systemic inflammatory response syndrome and acute organ dysfrunction within a period of 24 hours.
-- INF + SIRS + OD: Patients with suspected infection and SIRS + OD from 48 hours before to 24 hours after the infection time.
-
-![Cohorts Flow Diagram](./files/flow_diagram.png)
+- Phoenix: Patients with suspected infection and Phoenix score $\ge$ 2. Selected for final model.
+- pSepsis-3: Patients with suspected infection and pSOFA score $\ge$ 2. 
+- SIRS + OD: Patients with systemic inflammatory response syndrome and acute organ dysfrunction.
 
 The scripts for the screening approaches are in the folder `/screening_methods` using the data generated with the scripts in the folder `/data_screening`.
 
@@ -25,7 +23,7 @@ The scripts for the screening approaches are in the folder `/screening_methods` 
 
 ## Sepsis Prediction Model
 
-We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for each of the 3 cohorts. The selected model, with the best performance, is CatBoost for the pSepsis-3 cohort. It outputs the risk of sepsis within the first seven days of hospital admission for PICU patients. Download the trained model: [`Sepsis Prediction model`](./models/sepsis_catboost.cbm).
+We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for each of the 3 cohorts. The selected model, with the best performance, is CatBoost for the Phoenix cohort. It outputs the risk of sepsis within the first seven days of hospital admission for PICU patients. 
 
 ### Features
 
@@ -33,7 +31,7 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 
 | Features |         |
 |----------|---------|
-| Vital signs     | Diastolic blood pressure<br>Systolic blood pressure<br>Mean arterial blood pressure<br>HeartRate<br>Respiratory rate <br>Oxygen saturation (SpO2)<br>Temperature |
+| Vital signs     | Diastolic blood pressure<br>Systolic blood pressure<br>Mean arterial blood pressure<br>Heart rate<br>Respiratory rate <br>Oxygen saturation (SpO2)<br>Temperature |
 | Laboratory Tests| Albumin<br>Base excess<br>Base deficit<br>Arterial PaCO2<br>Arterial PaO2<br>Bicarbonate<br>Bilirubin<br>Blood urea nitrogen (BUN)<br>Calcium<br>Ionized calcium<br>Chloride<br>Carbon dioxide (CO2)<br>Creatinine<br>Glucose<br>Hemoglobin<br>Lactic acid<br>pH<br>Platelets<br>Potassium<br>Partial thromboplastin time (PTT)<br>Sodium<br>White blood cell (WBC) count |
 | Demographics                   | Age group                                     |
 | Scoring Systems                | pSOFA                                         |
@@ -43,10 +41,10 @@ We trained CatBoost, XGBoost, Random Forest, and Logistic Regression models for 
 
 ### Preprocessing
 
-The `get_features.ipynb` notebook in the `/data_models` folder shows the adopted preprocessing pipeline. It can be summarized in the following steps:
+The `preprocess_m1.ipynb` notebook in the `/data_models` folder shows the adopted preprocessing pipeline. It can be summarized in the following steps:
 
 1. Collect data obtained within the first 7 days of hospital stay.
-2. Resample data into two hour bins, using the median if there are multiple values recorded.
+2. Resample data into one hour bins, using the median if there are multiple values recorded.
 3. Discard outliers.
 4. Impute missing values using forward fill for a patient-wise imputation, followed by population median imputation for the remaining missing values.
 5. Select the 24-hour windows.
@@ -70,6 +68,6 @@ The `/train_test_models/utils/preprocess_utils.py` script contains multiple func
 We generated shap beeswarm and scatter plots for the most important features using the the SHAP library. `/train_test_models/shap_catboost.py`.
 
 <p float="left">
-  <img src="./files/shap_external.png" width="42%" />
-  <img src="./files/shap_external_scatter.png" width="53%" /> 
+  <img src="./files/shap_val.png" width="42%" />
+  <img src="./files/shap_val_scatter.png" width="53%" /> 
 </p>
